@@ -83,7 +83,61 @@
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/vote_average_tv"
             tools:text="Some lorem ipsum description of the movie... someone dies and in the end they are all happy" />
+<android.support.constraint.Barrier
+    android:id="@+id/barrier"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:barrierDirection="bottom"
+    app:constraint_referenced_ids="plot_tv,movie_poster" />
 
+        <!-- videos -->
+        <LinearLayout
+            android:id="@+id/videos_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/standard_margin"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/barrier">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_large"
+                android:text="@string/movie_videos"
+                android:layout_marginLeft="@dimen/standard_margin"
+                android:layout_marginRight="@dimen/standard_margin" />
+        </LinearLayout>
+
+        <!-- reviews -->
+        <LinearLayout
+            android:id="@+id/reviews_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/standard_margin"
+            app:layout_constraintTop_toBottomOf="@+id/videos_ll">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/reviews_title"
+                android:textSize="@dimen/text_large"
+                android:text="Movie reviews"
+                android:layout_marginLeft="@dimen/standard_margin"
+                android:layout_marginRight="@dimen/standard_margin"/>
+        </LinearLayout>
+
+        <!-- favorite fab -->
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/favorite_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_star_border_black_18dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/plot_tv"
+            app:layout_constraintTop_toTopOf="parent" />
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
 

@@ -33,6 +33,11 @@
                 android:value="com.flynorc.popularmovies_stage2.MainActivity" />
         </activity>
 
+        <provider
+            android:name=".database.MovieProvider"
+            android:authorities="com.flynorc.popularmovies_stage2"
+            android:exported="false" />
+
     </application>
 
 </manifest>

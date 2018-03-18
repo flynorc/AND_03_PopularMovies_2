@@ -22,7 +22,7 @@ public class DbUtils {
         Uri currentMovieUri = ContentUris.withAppendedId(MovieEntry.CONTENT_URI, id);
         //create the loader
         return new CursorLoader(context,   // Parent activity context
-                currentMovieUri,         // Query the content URI for the current product
+                currentMovieUri,         // Query the content URI for the current movie
                 getMovieProjection(),             // Columns to include in the resulting Cursor
                 null,                   // No selection clause
                 null,                   // No selection arguments

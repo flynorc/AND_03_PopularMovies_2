@@ -121,7 +121,7 @@ public class MovieProvider extends ContentProvider {
         }
     }
 
-    /**
+    /*
      * Insert a movie into the database with the given content values. Return the new content URI
      * for that specific row in the database.
      */
@@ -196,19 +196,19 @@ public class MovieProvider extends ContentProvider {
         final int match = sUriMatcher.match(uri);
         switch (match) {
             case MOVIES:
-                return updateProduct(uri, values, selection, selectionArgs);
+                return updateMovie(uri, values, selection, selectionArgs);
             case MOVIE_ID:
                 // Extract the movie id and pass that as selection and selection args
                 selection = MovieEntry.COLUMN_API_ID + "=?";
                 selectionArgs = new String[] { String.valueOf(ContentUris.parseId(uri)) };
-                return updateProduct(uri, values, selection, selectionArgs);
+                return updateMovie(uri, values, selection, selectionArgs);
             default:
                 throw new IllegalArgumentException("Update is not supported for " + uri);
         }
     }
 
-    private int updateProduct(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
-        validateProductUpdate(values);
+    private int updateMovie(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
+        validateMovieUpdate(values);
 
         // If there are no values to update, then don't try to update the database
         if (values.size() == 0) {
@@ -230,7 +230,7 @@ public class MovieProvider extends ContentProvider {
         return rowsUpdated;
     }
 
-    private void validateProductUpdate(ContentValues values) {
+    private void validateMovieUpdate(ContentValues values) {
         // If there is a key for required field, make sure it is not empty.
         // If there is no key set there is no need to worry,
         // since the required fields were validated on insert.
